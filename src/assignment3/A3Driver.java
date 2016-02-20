@@ -1,10 +1,12 @@
-package Assignment3;
+package assignment3;
 
 import java.util.*;
 
-public class ShoppingCartDriver 
+public class A3Driver
 	{
 
+	
+	
 	  public static void main(String[] args) 
 	  {
 		// TODO Auto-generated method stub
@@ -12,7 +14,7 @@ public class ShoppingCartDriver
 		//Open file; file name specified in args (command line)
 		
 		//Parse input, take appropriate actions.
-		
+		  
 		//Stub for arraylist.
 		ArrayList<Item> shoppingCart = new ArrayList<Item>(); 
 		
