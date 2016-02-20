@@ -5,7 +5,7 @@ public class Grocery extends Item {
 	boolean perishable;
 	//override calculatePrice() if necessary; Implement print methods as necessary	
 	// Only re-implement stuff you cannot get from the superclass (Item)
-	public Grocery(	String new_name, float new_price, int new_quantity, float new_weight, String op1){
+	public Grocery(String new_name, float new_price, int new_quantity, float new_weight, String op1){
 		op1  = op1.toUpperCase();
 		name = new_name;
 		price = new_price;
