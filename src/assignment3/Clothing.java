@@ -4,11 +4,19 @@ public class Clothing extends Item
 {
 
 	// variables, constructors as necessary
+	public Clothing(String new_name, float new_price, int new_quantity, int new_weight){
+		name = new_name;
+		price = new_price;
+		quantity = new_quantity;
+		weight = new_weight;
+	}
 	
 	float calculatePrice () 
 	{
 		float final_price = 0;
-		// Insert price calculation here
+		final_price = price + ((20*weight)*quantity);// standard shipping cost
+		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
+		final_price = (float) (temp_x / 100);
 		return final_price;
 	}
 	
