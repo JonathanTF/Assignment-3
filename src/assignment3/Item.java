@@ -6,7 +6,7 @@ public class Item
 	String name;
 	float price;
 	int quantity;
-	float weight;
+	int weight;
 // You will need a constructor (Why?). Create it here.
 	float calculatePrice () 
 	{
