@@ -22,10 +22,11 @@ public class Grocery extends Item {
 	float calculatePrice () 
 	{
 		float final_price = 0;
-		final_price = price + ((20*weight)*quantity);// standard shipping cost
+		float shipping_cost = ((20*weight)*quantity);// standard shipping cost
 		if(perishable == true){
-			final_price = final_price + ((price*20)/100);// if it is perishable there is a 20% additional charge for premium shipping
+			shipping_cost = shipping_cost + ((shipping_cost*20)/100);// if it is perishable there is a 20% additional charge for premium shipping
 		}
+		final_price = price + shipping_cost;
 		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
 		final_price = (float) (temp_x / 100);
 		return final_price;
