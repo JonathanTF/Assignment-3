@@ -25,10 +25,30 @@ public class Electronics extends Item
 	//Implement calculate price/print methods as necessary
 	
 	float calculatePrice () 
-	{
+	{	
+		float extra = 0;
+		if (checkTax(state)){
+			extra = (float) (price * 0.1); 
+		}
 		float final_price = 0;
 		// Insert price calculation here
 		return final_price;
+	}
+	
+	// checks whether the state has sales tax
+	boolean checkTax (String state){
+		int count = 0;
+		String[] no_tax = {"AK", "AZ", "NM", "TX", "VA"};
+		while (count <= 4){
+			if (state == no_tax[count]){
+				return false;
+			}
+			else{
+				count ++;
+			}
+		}
+		//if you get to this point, the state has sales tax
+		return true;
 	}
 	
 
