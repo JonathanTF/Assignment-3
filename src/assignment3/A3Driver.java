@@ -44,11 +44,11 @@ public class A3Driver
 	  
 	  
 	/******************************************************************************
-	* Method Name: getFromFile                                               	  *
+	* Method Name: getFromFile                                                    *
 	* Purpose: Reads through the input file and converts each line into an array  *							  
-	*	       of Strings. The output of the method as an ArrayList 'input list'  *
-	*		   in which each element is a String. For assignment 3 each element   *
-	*		   is a transaction.                                                  *
+	*          of Strings. The output of the method as an ArrayList 'input list'  *
+	*          in which each element is a String. For assignment 3 each element   *
+	*          is a transaction.                                                  *
 	******************************************************************************/
 	 public static ArrayList<String> getFromFile (String file){
 	 ArrayList<String> input_array = new ArrayList<String>();
