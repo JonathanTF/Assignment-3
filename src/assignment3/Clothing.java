@@ -22,6 +22,8 @@ public class Clothing extends Item
 	
 	void printItemAttributes () 
 	{
+		float total_price = calculatePrice();
+		System.out.println("Clothing Item: "+ name + " ("+quantity+" ct.) "+weight+"lbs; $"+total_price);
 		//Print all applicable attributes of this sub-class
 	}
 	

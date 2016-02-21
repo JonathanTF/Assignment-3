@@ -18,6 +18,7 @@ public class Item
 
 	void printItemAttributes () 
 	{
+		System.out.println(name + quantity + price + weight);
 		//Print all applicable attributes of this class
 	}
 

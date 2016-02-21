@@ -51,5 +51,18 @@ public class Electronics extends Item
 		return true;
 	}
 	
+	// prints attributes of this class
+	void printItemAttributes () 
+	{
+		float total_price = calculatePrice();
+		if(fragile == true){
+			System.out.println("(Fragile) Electronics Item: "+ name + " ("+quantity+" ct.) "+weight+"lbs; $"+total_price);
+		}else{
+			System.out.println("(Non-Fragile) Electronics Item: "+ name + " ("+quantity+" ct.) "+weight+"lbs; $"+total_price);
+		}
+		//Print all applicable attributes of this class
+	}
+	
+	
 
 }

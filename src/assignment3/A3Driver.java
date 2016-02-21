@@ -15,11 +15,10 @@ public class A3Driver
 	  public static void main(String[] args) 
 	  {
 		//Open file; file name specified in args (command line)
-		  String file_name = args[0];
-		  ArrayList<String> input_transactions = getFromFile(file_name);// returns an array of the transactions in an array of Strings
+		String file_name = args[0];
+		ArrayList<String> input_transactions = getFromFile(file_name);// returns an array of the transactions in an array of Strings
 
-		  	
-
+		  
 		//Parse input, take appropriate actions.
 		  
 		//Stub for arraylist.
@@ -73,4 +72,4 @@ public class A3Driver
 		return input_array;
 	 }   
 	 
-	}
+}
