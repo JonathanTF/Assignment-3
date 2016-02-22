@@ -22,9 +22,12 @@ public class A3Driver
 		while (index-1 <= input_transactions.size()){
 			String str = input_transactions.get(index-1);
 			String[] tokens = str.split(delims);
+			tokens[3] = tokens[3];
 			boolean check = errorCheck(tokens);
-			if (tokens[0] == "insert"){
-				insert(tokens);
+			if(check){
+				if (tokens[0] == "insert"){
+					insert(tokens);
+				}
 			}
 			//Parse input, take appropriate actions.
 		}
@@ -82,12 +85,67 @@ public class A3Driver
 	 }
 	 
 	 /******************************************************************************
+		* Method Name: isInteger                                                   *
+		* Purpose: checks if a string is an integer
+		******************************************************************************/
+	 
+	 public static boolean isInteger(String str) {
+		    if (str == null) {
+		        return false;
+		    }
+		    int length = str.length();
+		    if (length == 0) {
+		        return false;
+		    }
+		    for (int i = 0; i < length; i++) {
+		        char c = str.charAt(i);
+		        if (c < '0' || c > '9') {
+		            return false;
+		        }
+		    }
+		    return true;
+		}
+	 
+	 /******************************************************************************
 		* Method Name: errorCheck                                                    *
 		* Purpose: checks a transaction to make sure it is valid
 		******************************************************************************/
 	 
 	 public static boolean errorCheck(String[] tokens){
-		 return true; 
+		 tokens[0] = tokens[0].toLowerCase();
+		 boolean check = false;
+		 if (tokens[0] == "insert"){
+			 if((tokens[1] == "clothing") && (tokens.length == 6)){
+				 
+			 }
+			 else if((tokens[1] == "groceries") && (tokens.length == 7)){
+				 
+			 }
+			 else if((tokens[1] == "electronics") && (tokens.length == 8)){
+				 
+			 }
+		 }
+		 else  if (tokens[0] == "delete"){
+			 if (tokens.length == 2){
+				 check = true;
+				 }
+		 }
+		 else  if (tokens[0] == "search"){
+			 if (tokens.length == 2){
+			 check = true;
+			 }
+		 }
+		 else  if (tokens[0] == "update"){
+			 if((tokens.length == 3) && (tokens[2].matches("[-+]?\\d*\\.?\\d+"))){
+				 check = true;	
+			 }
+		 }
+		 else  if (tokens[0] == "print"){
+			 if(tokens.length == 1){
+				 check = true;
+			 }
+		 }
+		 return check; 
 	 }
 	 
 	 /******************************************************************************
