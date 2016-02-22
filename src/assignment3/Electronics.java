@@ -8,12 +8,9 @@ public class Electronics extends Item
 	String state; 
 	public Electronics (String new_name, float new_price, int new_quantity, int new_weight, 
 			String op1, String new_state){
+		super(new_name, new_price, new_quantity, new_weight);
 		op1 = op1.toUpperCase();
 		state = state.toUpperCase();
-		name = new_name;
-		price = new_price;
-		quantity = new_quantity;
-		weight = new_weight;
 		if (op1 == "F"){
 			fragile = true;
 		}

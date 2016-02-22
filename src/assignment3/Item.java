@@ -5,9 +5,16 @@ public class Item
 //Declare variables for this class. Think about its type: public, protected or private?
 	String name;
 	float price;
-	int quantity;
-	int weight;
-// You will need a constructor (Why?). Create it here.
+	protected int quantity;
+	protected int weight;
+
+	public Item(String new_name, float new_price, int new_quantity, int new_weight){
+		name = new_name;
+		price = new_price;
+		quantity = new_quantity;
+		weight = new_weight;
+	}
+	
 	float calculatePrice () 
 	{
 		float final_price = 0;

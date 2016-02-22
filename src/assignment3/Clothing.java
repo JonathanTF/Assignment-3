@@ -5,10 +5,7 @@ public class Clothing extends Item
 
 	// variables, constructors as necessary
 	public Clothing(String new_name, float new_price, int new_quantity, int new_weight){
-		name = new_name;
-		price = new_price;
-		quantity = new_quantity;
-		weight = new_weight;
+		super(new_name, new_price, new_quantity, new_weight);
 	}
 	
 	float calculatePrice () 
