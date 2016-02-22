@@ -19,10 +19,16 @@ public class A3Driver
 		int index = 1; //keep track of what transaction we are on
 		ArrayList<String> input_transactions = getFromFile(file_name);// returns an array of the transactions in an array of Strings
 		String delims = "[ ]+";	
-		String str = input_transactions.get(index-1);
-		String[] tokens = str.split(delims);
-		  
-		//Parse input, take appropriate actions.
+		while (index-1 <= input_transactions.size()){
+			String str = input_transactions.get(index-1);
+			String[] tokens = str.split(delims);
+			boolean check = errorCheck(tokens);
+			if (tokens[0] == "insert"){
+				insert(tokens);
+			}
+			//Parse input, take appropriate actions.
+		}
+		
 		  
 		//Stub for arraylist.
 		ArrayList<Item> shoppingCart = new ArrayList<Item>(); 
@@ -73,6 +79,24 @@ public class A3Driver
 				
 			}
 		return input_array;
-	 }   
+	 }
+	 
+	 /******************************************************************************
+		* Method Name: errorCheck                                                    *
+		* Purpose: checks a transaction to make sure it is valid
+		******************************************************************************/
+	 
+	 public static boolean errorCheck(String[] tokens){
+		 return true; 
+	 }
+	 
+	 /******************************************************************************
+		* Method Name: insert                                                    *
+		* Purpose: parses through tokens array for the insert transaction
+		******************************************************************************/
+	 
+	 public static void insert(String[] tokens){
+		 return; 
+	 }
 	 
 }
