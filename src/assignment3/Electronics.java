@@ -30,8 +30,15 @@ public class Electronics extends Item
 		if (checkTax(state)){
 			extra = (float) (price * 0.1); 
 		}
-		float final_price = 0;
-		// Insert price calculation here
+		if (fragile == true){
+			extra = (float) (extra + (1.2*(20*(weight)*quantity)));
+		}
+		else{
+			extra = extra + (20*(weight)*quantity);
+		}
+		float final_price = extra + price;
+		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
+		final_price = (float) (temp_x / 100);
 		return final_price;
 	}
 	
