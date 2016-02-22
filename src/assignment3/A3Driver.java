@@ -115,13 +115,15 @@ public class A3Driver
 		 tokens[0] = tokens[0].toLowerCase();
 		 boolean check = false;
 		 if (tokens[0] == "insert"){
-			 if((tokens[1] == "clothing") && (tokens.length == 6)){
-				 
+			 if((tokens[1] == "clothing") && (tokens.length == 6) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
+				 check = true; 
 			 }
-			 else if((tokens[1] == "groceries") && (tokens.length == 7)){
-				 
+			 else if((tokens[1] == "groceries") && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
 			 }
-			 else if((tokens[1] == "electronics") && (tokens.length == 8)){
+			 else if((tokens[1] == "electronics") && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
 				 
 			 }
 		 }
@@ -136,7 +138,7 @@ public class A3Driver
 			 }
 		 }
 		 else  if (tokens[0] == "update"){
-			 if((tokens.length == 3) && (tokens[2].matches("[-+]?\\d*\\.?\\d+"))){
+			 if((tokens.length == 3) && (isInteger(tokens[2]))){
 				 check = true;	
 			 }
 		 }
