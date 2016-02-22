@@ -33,7 +33,7 @@ public class Electronics extends Item
 		else{
 			extra = extra + (20*(weight)*quantity);
 		}
-		float final_price = extra + price;
+		float final_price = extra + (price*quantity);
 		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
 		final_price = (float) (temp_x / 100);
 		return final_price;

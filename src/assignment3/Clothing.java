@@ -11,7 +11,7 @@ public class Clothing extends Item
 	float calculatePrice () 
 	{
 		float final_price = 0;
-		final_price = price + ((20*weight)*quantity);// standard shipping cost
+		final_price = (price*quantity) + ((20*weight)*quantity);// standard shipping cost
 		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
 		final_price = (float) (temp_x / 100);
 		return final_price;
