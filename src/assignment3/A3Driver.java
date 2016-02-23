@@ -244,12 +244,12 @@ public class A3Driver
 	 ******************************************************************************/
 	private static void delete(String[] tokens, ArrayList<Item> shopping_cart) {
 		int item_tracker = 0;
-		Iterator<Item> p = shopping_cart.iterator();
-		while (p.hasNext()){
-			Item temp = p.next();
+		Iterator<Item> list = shopping_cart.iterator();
+		while (list.hasNext()){
+			Item temp = list.next();
 			if(temp.name.equals(tokens[1])==true){
 				item_tracker = (item_tracker + temp.quantity);
-				p.remove();
+				list.remove();
 			}
 		}
 		System.out.println(item_tracker + " "+ tokens[1]+"(s) successfully removed from Shopping Cart");
@@ -263,6 +263,15 @@ public class A3Driver
 	 * @param shopping_cart                                                        *
 	 ******************************************************************************/
 	private static void search(String[] tokens, ArrayList<Item> shopping_cart) {
+		int tracker = 0;
+		Iterator<Item> list = shopping_cart.iterator();
+		while(list.hasNext()){
+			Item temp = list.next();
+			if(temp.name.equals(tokens[1]) == true){
+				tracker = tracker+temp.quantity;
+			}
+		}
+		System.out.println("There are " + tracker + tokens[1] + " object(s)");
 		return;
 	}
  
