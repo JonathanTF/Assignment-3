@@ -17,13 +17,12 @@ public class A3Driver
 		/*Open file; file name specified in args (command line)*/
 		String file_name = args[0];
 		ArrayList<String> input_transactions = getFromFile(file_name);// returns an array of the transactions in an array of Strings
-		Iterator<String> t = input_transactions.iterator();// use an iterator to run through the list of transactions
+		Iterator<String> list = input_transactions.iterator();// use an iterator to run through the list of transactions
 		ArrayList<Item> shoppingCart = new ArrayList<Item>();// the shopping cart
 		String delims = "[ ]+";	
-		while (t.hasNext()){// while there is a next element
-			String str = t.next();// this will bring up the next transaction
+		while (list.hasNext()){// while there is a next element
+			String str = list.next();// this will bring up the next transaction
 			String[] tokens = str.split(delims);// each transaction is split into 'tokens' array
-//			tokens[3] = tokens[3];
 			boolean check = errorCheck(tokens);
 			if(check){
 				switch (tokens[0]) {// case argument for the 5 types of transactions
