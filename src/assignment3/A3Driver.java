@@ -133,21 +133,21 @@ public class A3Driver
 		 boolean check = false;
 		 switch (tokens[0]) {// case argument for the 5 types of transactions
 			case "insert": 
-				if((tokens[1] == "clothing") && (tokens.length == 6) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+				if((tokens[1].equals("clothing")) && (tokens.length == 6) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
 					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){	
 				 check = true; 
 				}
-				else if((tokens[1] == "groceries") && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+				else if((tokens[1].equals("groceries")) && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
 					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
 					tokens[6] = tokens[6].toUpperCase();
-					if (tokens[6] == "P" || tokens[6] == "NP"){
+					if (tokens[6].equals("P") || tokens[6].equals("NP")){
 						check = true;
 					}
 				}
-				else if((tokens[1] == "electronics") && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+				else if((tokens[1].equals("electronics")) && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
 					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
 					tokens[6] = tokens[6].toUpperCase();
-					if (tokens[6] == "F" || tokens[6] == "NF"){
+					if (tokens[6].equals("F") || tokens[6].equals("NF")){
 						tokens[7] = tokens[7].toUpperCase();
 						switch(tokens[7]){
 							
