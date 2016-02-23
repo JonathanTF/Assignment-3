@@ -21,6 +21,13 @@ public class A3Driver
 		ArrayList<Item> shoppingCart = new ArrayList<Item>();// the shopping cart
 		String delims = "[ ]+";	
 		while (list.hasNext()){// while there is a next element
+			/* A tester block that just prints out the shopping cart each iteration **doesn't show that last transaction
+			Iterator<Item> testing = shoppingCart.iterator();
+			while(testing.hasNext()){
+				Item tester = testing.next();
+				tester.printItemAttributes();
+			}
+			*/
 			String str = list.next();// this will bring up the next transaction
 			String[] tokens = str.split(delims);// each transaction is split into 'tokens' array
 			boolean check = errorCheck(tokens);
@@ -214,7 +221,19 @@ public class A3Driver
 	 * @param shopping_cart                                                        *
 	 ******************************************************************************/
 	private static void update(String[] tokens, ArrayList<Item> shopping_cart) {
-		return;
+		int index = 0;
+		Iterator<Item> p = shopping_cart.iterator();
+		while (p.hasNext()){
+			Item temp = p.next();
+			if(temp.name.equals(tokens[1])==true){
+				temp.quantity = Integer.parseInt(tokens[2]);
+				shopping_cart.set(index, temp);
+				System.out.println("Update successful. There are now " + tokens[2]+" "+tokens[1]+"(s) in the Shopping Cart" );	
+				return;
+			}
+			index+=1;
+		}
+		System.out.println("Update unsuccessful. Item " + tokens[1] +" not found Shopping Cart" );	
 	}
 	
 	
@@ -229,7 +248,7 @@ public class A3Driver
 		while (p.hasNext()){
 			Item temp = p.next();
 			if(temp.name.equals(tokens[1])==true){
-				item_tracker+=1;
+				item_tracker = (item_tracker + temp.quantity);
 				p.remove();
 			}
 		}

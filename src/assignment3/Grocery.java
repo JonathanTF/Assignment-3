@@ -33,9 +33,9 @@ public class Grocery extends Item {
 	{
 		float total_price = calculatePrice();
 		if(perishable == true){
-			System.out.println("(Perishable) Grocery Item: "+ name + " ("+quantity+" ct.) "+weight+"lbs; $"+total_price);
+			System.out.println("(Perishable) Grocery Item: "+ name +" ("+weight+" lbs) "+quantity+" ct. = $"+total_price);
 		}else{
-			System.out.println("(Non-Perishable) Grocery Item: "+ name + " ("+quantity+" ct.) "+weight+"lbs; $"+total_price);
+			System.out.println("(Non-Perishable) Grocery Item: "+ name +" ("+weight+" lbs) "+quantity+" ct. = $"+total_price);
 		}
 		//Print all applicable attributes of this class
 	}
