@@ -10,6 +10,7 @@ public class Electronics extends Item
 			String op1, String new_state){
 		super(new_name, new_price, new_quantity, new_weight);
 		op1 = op1.toUpperCase();
+		state = new_state;
 		state = state.toUpperCase();
 		if (op1 == "F"){
 			fragile = true;
@@ -17,7 +18,6 @@ public class Electronics extends Item
 		else{
 			fragile = false;
 		}
-		state = new_state;
 	}
 	//Implement calculate price/print methods as necessary
 	
