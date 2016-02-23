@@ -124,38 +124,49 @@ public class A3Driver
 	 public static boolean errorCheck(String[] tokens){
 		 tokens[0] = tokens[0].toLowerCase();
 		 boolean check = false;
-		 if (tokens[0] == "insert"){
-			 if((tokens[1] == "clothing") && (tokens.length == 6) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
-					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
+		 switch (tokens[0]) {// case argument for the 5 types of transactions
+			case "insert": 
+				if((tokens[1] == "clothing") && (tokens.length == 6) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){	
 				 check = true; 
-			 }
-			 else if((tokens[1] == "groceries") && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+				}
+				else if((tokens[1] == "groceries") && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
 					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
-			 }
-			 else if((tokens[1] == "electronics") && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
+					tokens[6] = tokens[6].toUpperCase();
+					if (tokens[6] == "P" || tokens[6] == "NP"){
+						check = true;
+					}
+				}
+				else if((tokens[1] == "electronics") && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
 					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
-				 
-			 }
-		 }
-		 else  if (tokens[0] == "delete"){
-			 if (tokens.length == 2){
-				 check = true;
+					tokens[6] = tokens[6].toUpperCase();
+					if (tokens[6] == "F" || tokens[6] == "NF"){
+						tokens[7] = tokens[7].toUpperCase();
+						switch(tokens[7]){
+							
+						}
+					}
+				}
+			case "search": 
+				if (tokens.length == 2){
+					 check = true;
+				}
+				break;
+			case "delete": 
+				if (tokens.length == 2){
+					 check = true;
+				}
+				break;
+			case "update": 
+				if((tokens.length == 3) && (isInteger(tokens[2]))){
+					 check = true;	
 				 }
-		 }
-		 else  if (tokens[0] == "search"){
-			 if (tokens.length == 2){
-			 check = true;
-			 }
-		 }
-		 else  if (tokens[0] == "update"){
-			 if((tokens.length == 3) && (isInteger(tokens[2]))){
-				 check = true;	
-			 }
-		 }
-		 else  if (tokens[0] == "print"){
-			 if(tokens.length == 1){
-				 check = true;
-			 }
+				break;
+			case "print": 
+				 if(tokens.length == 1){
+					 check = true;
+				 }
+				 break;
 		 }
 		 return check; 
 	 }
