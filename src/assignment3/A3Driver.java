@@ -23,7 +23,7 @@ public class A3Driver
 		while (t.hasNext()){// while there is a next element
 			String str = t.next();// this will bring up the next transaction
 			String[] tokens = str.split(delims);// each transaction is split into 'tokens' array
-			tokens[3] = tokens[3];  // what does this do?***
+//			tokens[3] = tokens[3];
 			boolean check = errorCheck(tokens);
 			if(check){
 				switch (tokens[0]) {// case argument for the 5 types of transactions
@@ -171,15 +171,15 @@ public class A3Driver
 		 Float priceFloat = Float.parseFloat(tokens[3]);
 		 int quantityInt = Integer.parseInt(tokens[4]);
 		 int weightInt = Integer.parseInt(tokens[5]);
-		 if(tokens[1] == "groceries"){
+		 if(tokens[1].equals("groceries") == true){
 			Item temp = new Grocery(tokens[2], priceFloat, quantityInt, weightInt, tokens[6]);
 			shopping_cart.add(temp);
 			return;
-		 }else if(tokens[1] == "electronics"){
+		 }else if(tokens[1].equals("electronics") == true){
 			Item temp = new Electronics(tokens[2], priceFloat, quantityInt, weightInt, tokens[6], tokens[7]);
 			shopping_cart.add(temp);
 			return;
-		 }else if(tokens[1] == " clothing"){
+		 }else if(tokens[1].equals("clothing") == true){
 			Item temp = new Clothing(tokens[2], priceFloat, quantityInt, weightInt);
 			shopping_cart.add(temp);
 			return;
@@ -214,7 +214,16 @@ public class A3Driver
 	 *   screen how many were deleted                                              *
 	 ******************************************************************************/
 	private static void delete(String[] tokens, ArrayList<Item> shopping_cart) {
-		return;
+		int item_tracker = 0;
+		Iterator<Item> p = shopping_cart.iterator();
+		while (p.hasNext()){
+			Item temp = p.next();
+			if(temp.name.equals(tokens[1])==true){
+				item_tracker+=1;
+				p.remove();
+			}
+		}
+		System.out.println(item_tracker + " "+ tokens[1]+"(s) successfully removed from Shopping Cart");
 	}
 	
 	
