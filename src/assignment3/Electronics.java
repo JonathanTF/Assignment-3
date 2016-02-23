@@ -12,7 +12,7 @@ public class Electronics extends Item
 		op1 = op1.toUpperCase();
 		state = new_state;
 		state = state.toUpperCase();
-		if (op1 == "F"){
+		if (op1.equals("F") == true){
 			fragile = true;
 		}
 		else{
@@ -44,7 +44,7 @@ public class Electronics extends Item
 		int count = 0;
 		String[] no_tax = {"AK", "AZ", "NM", "TX", "VA"};
 		while (count <= 4){
-			if (state == no_tax[count]){
+			if (state.equals(no_tax[count]) == true){
 				return false;
 			}
 			else{
@@ -60,9 +60,9 @@ public class Electronics extends Item
 	{
 		float total_price = calculatePrice();
 		if(fragile == true){
-			System.out.println("(Fragile) Electronics Item: "+ name + " ("+quantity+" ct.) "+weight+"lbs; $"+total_price);
+			System.out.println("(Fragile) Electronics Item: "+ name +" ("+weight+" lbs) "+quantity+" ct. = $"+total_price);
 		}else{
-			System.out.println("(Non-Fragile) Electronics Item: "+ name + " ("+quantity+" ct.) "+weight+"lbs; $"+total_price);
+			System.out.println("(Non-Fragile) Electronics Item: "+ name +" ("+weight+" lbs) "+quantity+" ct. = $"+total_price);
 		}
 		//Print all applicable attributes of this class
 	}
