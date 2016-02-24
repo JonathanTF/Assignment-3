@@ -45,6 +45,9 @@ public class A3Driver
 								  break;
 				}
 			}
+			else{
+				System.out.println("Invalid transaction");
+			}
 		}
 		
 		  
@@ -197,6 +200,7 @@ public class A3Driver
 		 int weightInt = Integer.parseInt(tokens[5]);
 		 if(tokens[1].equals("groceries") == true){
 			Item temp = new Grocery(tokens[2], priceFloat, quantityInt, weightInt, tokens[6]);
+			
 			shopping_cart.add(temp);
 			return;
 		 }else if(tokens[1].equals("electronics") == true){
@@ -208,6 +212,16 @@ public class A3Driver
 			shopping_cart.add(temp);
 			return;
 		 } 
+	 }
+	 
+	 /******************************************************************************
+	 * 	Method Name: order														   *
+	 *	 Purpose: adds an item into the arraylist based on alphabetical order                                                  *
+	 ******************************************************************************/
+	 
+	 public static void order(Item temp, ArrayList<Item> shopping_cart){
+		 int index = 0;
+		 temp.name.compareToIgnoreCase(shopping_cart.get(index).name);
 	 }
 	 
 	 
