@@ -29,6 +29,9 @@ public class A3Driver
 			}
 			*/
 			String str = list.next();// this will bring up the next transaction
+			if(str.equals("") == true){
+				continue;
+			}
 			String[] tokens = str.split(delims);// each transaction is split into 'tokens' array
 			boolean check = errorCheck(tokens);
 			if(check){
