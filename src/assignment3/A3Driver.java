@@ -154,7 +154,7 @@ public class A3Driver
 								"MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
 								"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
 								"SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
-						for (int count = states.length; count <= 50; count++){
+						for (int count = 0; count < states.length; count++){
 							if (states[count].equals(tokens[7])){
 								check = true; 
 							}
