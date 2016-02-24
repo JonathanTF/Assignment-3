@@ -1,1 +1,4 @@
-insert garbage null 123456789 987654321
+insert clothing shirt 40 1 1
+insert groceries shirt 40 1 1 P
+insert electronics shirt 40 1 1 F TX
+print
