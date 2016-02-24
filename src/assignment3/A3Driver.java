@@ -184,6 +184,8 @@ public class A3Driver
 					check = false;
 				} catch(java.lang.NullPointerException f){
 					check = false;
+				} catch(java.lang.ArrayIndexOutOfBoundsException g){
+					check = false;
 				}
 			case "search": 
 				if (tokens.length == 2){
