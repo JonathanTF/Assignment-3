@@ -4,3 +4,4 @@ insert electronics ps4 40 2 1 F NY
 insert groceries cabbage 2.50 5 1 NP
 update shirt 5
 insert electronics TV 1000 1 58 F TX
+search shirt

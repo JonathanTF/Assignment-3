@@ -278,7 +278,7 @@ public class A3Driver
 				tracker = tracker+temp.quantity;
 			}
 		}
-		System.out.println("There are " + tracker + tokens[1] + " object(s)");
+		System.out.println("There are " + tracker +" "+tokens[1] + " object(s)");
 		return;
 	}
  
