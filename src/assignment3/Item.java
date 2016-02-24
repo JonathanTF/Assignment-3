@@ -1,6 +1,6 @@
 package assignment3;
 
-public class Item 
+public class Item implements Comparable<Item>
 {
 //Declare variables for this class. Think about its type: public, protected or private?
 	String name;
@@ -27,6 +27,11 @@ public class Item
 	{
 		System.out.println(name + quantity + price + weight);
 		//Print all applicable attributes of this class
+	}
+	
+	@Override
+	public int compareTo(Item temp){
+		return name.compareTo(temp.name);
 	}
 
 }

@@ -18,7 +18,7 @@ public class A3Driver
 		String file_name = args[0];
 		ArrayList<String> input_transactions = getFromFile(file_name);// returns an array of the transactions in an array of Strings
 		Iterator<String> list = input_transactions.iterator();// use an iterator to run through the list of transactions
-		ArrayList<Item> shoppingCart = new ArrayList<Item>();// the shopping cart
+		List<Item> shoppingCart = new ArrayList<Item>();// the shopping cart
 		String delims = "[ ]+";	
 		while (list.hasNext()){// while there is a next element
 			/* A tester block that just prints out the shopping cart each iteration **doesn't show that last transaction
@@ -194,43 +194,30 @@ public class A3Driver
 	 * @param input_transactions                                                   *
 	 ******************************************************************************/
 	 
-	 public static void insert(String[] tokens, ArrayList<Item> shopping_cart){
+	 public static void insert(String[] tokens, List<Item> shopping_cart){
 		 Float priceFloat = Float.parseFloat(tokens[3]);
 		 int quantityInt = Integer.parseInt(tokens[4]);
 		 int weightInt = Integer.parseInt(tokens[5]);
 		 if(tokens[1].equals("groceries") == true){
 			Item temp = new Grocery(tokens[2], priceFloat, quantityInt, weightInt, tokens[6]);
-			
 			shopping_cart.add(temp);
-			return;
 		 }else if(tokens[1].equals("electronics") == true){
 			Item temp = new Electronics(tokens[2], priceFloat, quantityInt, weightInt, tokens[6], tokens[7]);
 			shopping_cart.add(temp);
-			return;
 		 }else if(tokens[1].equals("clothing") == true){
 			Item temp = new Clothing(tokens[2], priceFloat, quantityInt, weightInt);
 			shopping_cart.add(temp);
-			return;
 		 } 
+		 Collections.sort(shopping_cart);
+		 return;
 	 }
-	 
-	 /******************************************************************************
-	 * 	Method Name: order														   *
-	 *	 Purpose: adds an item into the arraylist based on alphabetical order                                                  *
-	 ******************************************************************************/
-	 
-	 public static void order(Item temp, ArrayList<Item> shopping_cart){
-		 int index = 0;
-		 temp.name.compareToIgnoreCase(shopping_cart.get(index).name);
-	 }
-	 
 	 
 	 /******************************************************************************
 	 * 	Method Name: print														   *
 	 *	 Purpose: print the contents of the shopping cart by name		           *
 	 * @param shopping_cart                                                        *
 	 ******************************************************************************/
-	private static void print(String[] tokens, ArrayList<Item> shopping_cart) {
+	private static void print(String[] tokens, List<Item> shopping_cart) {
 		return;
 	}
 	
@@ -241,7 +228,7 @@ public class A3Driver
 	 *   of a matching name                                                        *
 	 * @param shopping_cart                                                        *
 	 ******************************************************************************/
-	private static void update(String[] tokens, ArrayList<Item> shopping_cart) {
+	private static void update(String[] tokens, List<Item> shopping_cart) {
 		int index = 0;
 		Iterator<Item> p = shopping_cart.iterator();
 		while (p.hasNext()){
@@ -263,7 +250,7 @@ public class A3Driver
 	 *	 Purpose: would delete all entries the same input name, and output to the  *
 	 *   screen how many were deleted                                              *
 	 ******************************************************************************/
-	private static void delete(String[] tokens, ArrayList<Item> shopping_cart) {
+	private static void delete(String[] tokens, List<Item> shopping_cart) {
 		int item_tracker = 0;
 		Iterator<Item> list = shopping_cart.iterator();
 		while (list.hasNext()){
@@ -283,7 +270,7 @@ public class A3Driver
      *   outputs the number of objects found to the screen                         *
 	 * @param shopping_cart                                                        *
 	 ******************************************************************************/
-	private static void search(String[] tokens, ArrayList<Item> shopping_cart) {
+	private static void search(String[] tokens, List<Item> shopping_cart) {
 		int tracker = 0;
 		Iterator<Item> list = shopping_cart.iterator();
 		while(list.hasNext()){
