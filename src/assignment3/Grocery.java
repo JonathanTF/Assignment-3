@@ -31,7 +31,7 @@ public class Grocery extends Item {
 		return final_price;
 	}
 	
-	float printItemAttributes () 
+	/*float printItemAttributes () 
 	{
 		float total_price = calculatePrice();
 		if(perishable == true){
@@ -43,6 +43,6 @@ public class Grocery extends Item {
 		}
 		return total_price;
 		//Print all applicable attributes of this class
-	}
+	}*/
 	
 }

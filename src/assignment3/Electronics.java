@@ -60,7 +60,7 @@ public class Electronics extends Item
 	}
 	
 	// prints attributes of this class
-	float printItemAttributes () 
+	/*float printItemAttributes () 
 	{
 		float total_price = calculatePrice();
 		if(fragile == true){
@@ -73,7 +73,7 @@ public class Electronics extends Item
 		}
 		return total_price;
 		//Print all applicable attributes of this class
-	}
+	}*/
 	
 	
 

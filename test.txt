@@ -1,8 +1,4 @@
-insert clothing apples 10a0 2 50.00
-insert clothing apples 100.1 2 50.01
-insert clothing apples 100.1 2 50e
-insert clothing apples 100.1 2 50.e
-insert clothing apples 100.1 2a 50
-insert clothing apples 100.1 2.a 50
-insert clothing apples 100.1 2 50b
-insert clothing apples 100.1 2 50.b
+insert clothing apples 100 2 50
+insert clothing apples 100 2 50
+insert groceries apples 100 2 50 P
+print

@@ -246,7 +246,7 @@ public class A3Driver
 			Item temp = list.next();
 			total_charge = total_charge + temp.printItemAttributes();
 		}
-		System.out.println("Shopping Cart Total Charge: " + total_charge);
+		System.out.println("Shopping Cart Total Charge: $" + total_charge);
 	}
 	
 	

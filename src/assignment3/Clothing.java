@@ -19,14 +19,14 @@ public class Clothing extends Item
 		return final_price;
 	}
 	
-	float printItemAttributes () 
+	/*float printItemAttributes () 
 	{
 		float total_price = calculatePrice();
 		System.out.println("Clothing Item: "+ name + " Quantity: " + quantity + " ct." + 
 		" Final price (after tax and shipping): " + total_price);
 		return total_price;
 		//Print all applicable attributes of this sub-class
-	}
+	}*/
 	
 
 }

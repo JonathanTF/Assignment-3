@@ -25,9 +25,11 @@ public class Item implements Comparable<Item>
 
 	float printItemAttributes () 
 	{
-		System.out.println(name + quantity + price + weight);
-		return price;
-		//Print all applicable attributes of this class
+		float total_price = calculatePrice();
+		System.out.println("Clothing Item: "+ name + " Quantity: " + quantity + " ct." + 
+		" Final price (after tax and shipping): $" + total_price);
+		return total_price;
+		//Print all applicable attributes of this sub-class
 	}
 	
 	@Override
