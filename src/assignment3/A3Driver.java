@@ -149,8 +149,15 @@ public class A3Driver
 					tokens[6] = tokens[6].toUpperCase();
 					if (tokens[6].equals("F") || tokens[6].equals("NF")){
 						tokens[7] = tokens[7].toUpperCase();
-						switch(tokens[7]){
-							
+						String states[] = {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", 
+								"HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+								"MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+								"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+								"SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
+						for (int count = states.length; count <= 50; count++){
+							if (states[count].equals(tokens[7])){
+								check = true; 
+							}
 						}
 					}
 				}
