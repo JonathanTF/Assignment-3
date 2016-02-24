@@ -23,9 +23,10 @@ public class Item implements Comparable<Item>
 	}
 	
 
-	void printItemAttributes () 
+	float printItemAttributes () 
 	{
 		System.out.println(name + quantity + price + weight);
+		return price;
 		//Print all applicable attributes of this class
 	}
 	

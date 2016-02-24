@@ -2,10 +2,13 @@ package assignment3;
 
 public class Electronics extends Item 
 {
-
+	
 	// Variables, constructors etc. here.
 	boolean fragile; 
-	String state; 
+	String state;
+	double shipping = 0;
+	double tax = 0;
+	
 	public Electronics (String new_name, float new_price, int new_quantity, int new_weight, 
 			String op1, String new_state){
 		super(new_name, new_price, new_quantity, new_weight);
@@ -25,14 +28,15 @@ public class Electronics extends Item
 	{	
 		float extra = 0;
 		if (checkTax(state)){
-			extra = (float) (price * 0.1); 
+			tax = 0.1*price;
 		}
 		if (fragile == true){
-			extra = (float) (extra + (1.2*(20*(weight)*quantity)));
+			shipping = (1.2*(20*(weight)*quantity));
 		}
 		else{
-			extra = extra + (20*(weight)*quantity);
+			shipping = (20*(weight)*quantity);
 		}
+		extra = (float) (shipping+tax);
 		float final_price = extra + (price*quantity);
 		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
 		final_price = (float) (temp_x / 100);
@@ -56,14 +60,18 @@ public class Electronics extends Item
 	}
 	
 	// prints attributes of this class
-	void printItemAttributes () 
+	float printItemAttributes () 
 	{
 		float total_price = calculatePrice();
 		if(fragile == true){
-			System.out.println("(Fragile) Electronics Item: "+ name +" ("+weight+" lbs) "+quantity+" ct. = $"+total_price);
-		}else{
-			System.out.println("(Non-Fragile) Electronics Item: "+ name +" ("+weight+" lbs) "+quantity+" ct. = $"+total_price);
+			System.out.println("(Fragile) Electronics Item: "+ name + " Quantity: " + quantity + " ct." + 
+			" Final price (after tax and shipping): " + total_price);
 		}
+		else{
+			System.out.println("(Non-Fragile) Electronics Item: "+ name + " Quantity: " + quantity + " ct." + 
+					" Final price (after tax and shipping): " + total_price);		
+		}
+		return total_price;
 		//Print all applicable attributes of this class
 	}
 	

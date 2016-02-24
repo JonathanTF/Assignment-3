@@ -3,6 +3,8 @@ package assignment3;
 public class Grocery extends Item {
 	//variables, constructor here
 	boolean perishable;
+	double shipping = 0;
+	double tax = 0;
 	//override calculatePrice() if necessary; Implement print methods as necessary	
 	// Only re-implement stuff you cannot get from the superclass (Item)
 	public Grocery(String new_name, float new_price, int new_quantity, int new_weight, String op1){
@@ -19,24 +21,27 @@ public class Grocery extends Item {
 	float calculatePrice () 
 	{
 		float final_price = 0;
-		float shipping_cost = ((20*weight)*quantity);// standard shipping cost
+		float shipping = ((20*weight)*quantity);// standard shipping cost
 		if(perishable == true){
-			shipping_cost = shipping_cost + ((shipping_cost*20)/100);// if it is perishable there is a 20% additional charge for premium shipping
+			shipping = shipping + ((shipping*20)/100);// if it is perishable there is a 20% additional charge for premium shipping
 		}
-		final_price = (price*quantity) + shipping_cost;
+		final_price = (price*quantity) + shipping;
 		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
 		final_price = (float) (temp_x / 100);
 		return final_price;
 	}
 	
-	void printItemAttributes () 
+	float printItemAttributes () 
 	{
 		float total_price = calculatePrice();
 		if(perishable == true){
-			System.out.println("(Perishable) Grocery Item: "+ name +" ("+weight+" lbs) "+quantity+" ct. = $"+total_price);
-		}else{
-			System.out.println("(Non-Perishable) Grocery Item: "+ name +" ("+weight+" lbs) "+quantity+" ct. = $"+total_price);
+			System.out.println("(Perishable) Groceries Item: "+ name + " Quantity: " + quantity + " ct." + 
+					" Final price (after tax and shipping): " + total_price);		
 		}
+		else{System.out.println("(Non-Perishable) Groceries Item: "+ name + " Quantity: " + quantity + " ct." + 
+				" Final price (after tax and shipping): " + total_price);		
+		}
+		return total_price;
 		//Print all applicable attributes of this class
 	}
 	

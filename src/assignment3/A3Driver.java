@@ -218,7 +218,14 @@ public class A3Driver
 	 * @param shopping_cart                                                        *
 	 ******************************************************************************/
 	private static void print(String[] tokens, List<Item> shopping_cart) {
-		return;
+		float total_charge = 0;
+		System.out.println("Your Shopping Cart");
+		Iterator<Item> list = shopping_cart.iterator();
+		while(list.hasNext()){
+			Item temp = list.next();
+			total_charge = total_charge + temp.printItemAttributes();
+		}
+		System.out.println("Shopping Cart Total Charge: " + total_charge);
 	}
 	
 	
