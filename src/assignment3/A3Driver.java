@@ -136,19 +136,16 @@ public class A3Driver
 		 boolean check = false;
 		 switch (tokens[0]) {// case argument for the 5 types of transactions
 			case "insert": 
-				if((tokens[1].equals("clothing")) && (tokens.length == 6) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
-					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){	
+				if((tokens[1].equals("clothing")) && (tokens.length == 6) && (tokens[3].matches("[-+]?\\d*\\.?\\d+"))){	
 				 check = true; 
 				}
-				else if((tokens[1].equals("groceries")) && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
-					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
+				else if((tokens[1].equals("groceries")) && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+"))){
 					tokens[6] = tokens[6].toUpperCase();
 					if (tokens[6].equals("P") || tokens[6].equals("NP")){
 						check = true;
 					}
 				}
-				else if((tokens[1].equals("electronics")) && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+")) && 
-					 (isInteger(tokens[4])) && (isInteger(tokens[5]))){
+				else if((tokens[1].equals("electronics")) && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+"))){
 					tokens[6] = tokens[6].toUpperCase();
 					if (tokens[6].equals("F") || tokens[6].equals("NF")){
 						tokens[7] = tokens[7].toUpperCase();
@@ -163,6 +160,30 @@ public class A3Driver
 							}
 						}
 					}
+				}
+				try{ 
+					if(tokens[4].endsWith(".") || tokens[5].endsWith(".")){
+						check = false;
+						break;
+					}
+					if (tokens[4].contains("e") || tokens[5].contains("e")){
+						check = false;
+						break;
+					}
+					for(int k = 4;k<6;k++){
+						double num = Double.parseDouble(tokens[k]);
+						long left_part = (long) num;
+						double right_part = num - left_part;
+						if(right_part == 0){
+							tokens[k] = String.valueOf(left_part);
+						}else if(right_part != 0){
+							check = false;
+						}
+					}
+				} catch(java.lang.NumberFormatException e){
+					check = false;
+				} catch(java.lang.NullPointerException f){
+					check = false;
 				}
 			case "search": 
 				if (tokens.length == 2){
