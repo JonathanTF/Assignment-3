@@ -177,11 +177,17 @@ public class A3Driver
 						check = false;
 						break;
 					}
+					double num_p =Double.parseDouble(tokens[3]);
+					num_p = num_p*100;
+					long left_part_p = (long) (num_p);
+					double right_part_p = num_p - left_part_p;
+					if(right_part_p != 0){
+						check = false;
+						break;
+					}
 					for(int k = 4;k<6;k++){
-					//int test = Integer.parseInt(tokens[k]);
 						double num = Double.parseDouble(tokens[k]);
 						long left_part = (long) num;
-						int test = (int) left_part;
 						double right_part = num - left_part;
 						if(right_part == 0){
 							tokens[k] = String.valueOf(left_part);
