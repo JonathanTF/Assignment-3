@@ -165,6 +165,10 @@ public class A3Driver
 					}
 				}
 				try{ 
+					if(Float.parseFloat(tokens[3])<0 || Integer.parseInt(tokens[4])<0 || Integer.parseInt(tokens[5])<0){
+						check = false;
+						break;
+					}
 					if(tokens[4].endsWith(".") || tokens[5].endsWith(".")){
 						check = false;
 						break;
