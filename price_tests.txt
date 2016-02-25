@@ -1,0 +1,4 @@
+insert electronics cup 40.25 1 2 F AL
+insert groceries cup 40.25 1 2 P
+insert clothing cup 40.25 1 2
+print

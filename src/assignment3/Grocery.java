@@ -25,11 +25,12 @@ public class Grocery extends Item {
 		if(perishable == true){
 			shipping = shipping + ((shipping*20)/100);// if it is perishable there is a 20% additional charge for premium shipping
 		}
-		final_price = (price*quantity) + shipping;
-		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
-		final_price = (float) (temp_x / 100);
-		return final_price;
+		final_price = Math.round(((price*quantity) +  shipping)*100);
+		final_price = final_price / 100;
+		return  final_price;
 	}
+	
+	
 	
 	/*float printItemAttributes () 
 	{

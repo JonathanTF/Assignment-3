@@ -38,8 +38,8 @@ public class Electronics extends Item
 		}
 		extra = (float) (shipping+tax);
 		float final_price = extra + (price*quantity);
-		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
-		final_price = (float) (temp_x / 100);
+		final_price = Math.round(((price*quantity) +  extra)*100);
+		final_price = final_price / 100;
 		return final_price;
 	}
 	

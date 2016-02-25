@@ -13,12 +13,12 @@ public class Clothing extends Item
 	float calculatePrice () 
 	{
 		float final_price = 0;
-		final_price = (float) ((price*quantity) + (0.1*price) + ((20*weight)*quantity));// standard shipping cost
-		int temp_x = (int)(final_price*100);// ensure that it is only two decimal places
-		final_price = (float) (temp_x / 100);
+		float extra = (float) ((0.1*price) + ((20*weight)*quantity));
+		final_price = Math.round(((price*quantity) +  extra)*100);
+		final_price = final_price / 100;
 		return final_price;
 	}
-	
+
 	/*float printItemAttributes () 
 	{
 		float total_price = calculatePrice();

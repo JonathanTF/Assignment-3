@@ -174,8 +174,10 @@ public class A3Driver
 						break;
 					}
 					for(int k = 4;k<6;k++){
+					//int test = Integer.parseInt(tokens[k]);
 						double num = Double.parseDouble(tokens[k]);
 						long left_part = (long) num;
+						int test = (int) left_part;
 						double right_part = num - left_part;
 						if(right_part == 0){
 							tokens[k] = String.valueOf(left_part);
@@ -249,7 +251,7 @@ public class A3Driver
 		Iterator<Item> list = shopping_cart.iterator();
 		while(list.hasNext()){
 			Item temp = list.next();
-			total_charge = total_charge + temp.printItemAttributes();
+			total_charge = (total_charge + temp.printItemAttributes());
 		}
 		System.out.println("Shopping Cart Total Charge: $" + total_charge);
 	}
