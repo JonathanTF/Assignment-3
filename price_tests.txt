@@ -1,6 +1,6 @@
-insert electronics cupH 40.25214134 1 2 F AL
-insert groceries cupE 40.25 1 2 P
-insert groceries cup3 40.25 1 2 Q
-insert clothing cupG 40.25 1 2
-insert clothing cup2 40 -1 2
+insert electronics a 2 2 1 F TX
+insert electronics b 2 2 1 NF TX
+insert electronics c 2 2 1 F NY
+insert electronics d 2 2 1 NF NY
+
 print

@@ -1,3 +1,6 @@
+/* EE422C assignment3: Shopping Cart
+ * by Jonathan Friesen and Royce Li
+ */
 package assignment3;
 
 import java.io.BufferedReader;
@@ -21,19 +24,12 @@ public class A3Driver
 		List<Item> shoppingCart = new ArrayList<Item>();// the shopping cart
 		String delims = "[ ]+";	
 		while (list.hasNext()){// while there is a next element
-			/* A tester block that just prints out the shopping cart each iteration **doesn't show that last transaction
-			Iterator<Item> testing = shoppingCart.iterator();
-			while(testing.hasNext()){
-				Item tester = testing.next();
-				tester.printItemAttributes();
-			}
-			*/
 			String str = list.next();// this will bring up the next transaction
 			if(str.equals("") == true){
 				continue;
 			}
 			String[] tokens = str.split(delims);// each transaction is split into 'tokens' array
-			boolean check = errorCheck(tokens);
+			boolean check = errorCheck(tokens);// main fail-safe
 			if(check){
 				switch (tokens[0]) {// case argument for the 5 types of transactions
 					case "insert": insert(tokens, shoppingCart);
@@ -52,25 +48,6 @@ public class A3Driver
 				System.out.println("Invalid transaction");
 			}
 		}
-		
-		  
-		/*//Stub for arraylist.
-		ArrayList<Item> shoppingCart = new ArrayList<Item>(); 
-		
-		// General code example for how to iterate an array list. You will have to modify this heavily, to suit your needs.
-		Iterator<Item> i = shoppingCart.iterator();
-		while (i.hasNext()) 
-		{
-			Item temp = i.next();
-			temp.calculatePrice(); 
-			temp.printItemAttributes();
-			//This (above) works because of polymorphism: a determination is made at runtime, 
-			//based on the inherited class type, as to which method is to be invoked. Eg: If it is an instance
-			// of Grocery, it will invoke the calculatePrice () method defined in Grocery.
-		}	
-		*/
-
-	  
 	}
 	  
 	  
@@ -107,10 +84,10 @@ public class A3Driver
 		return input_array;
 	 }
 	 
-	 /******************************************************************************
-		* Method Name: isInteger                                                   *
-		* Purpose: checks if a string is an integer
-		******************************************************************************/
+	 /*****************************************************************************
+	*  Method Name: isInteger                                                     *
+	*  Purpose: checks if a string is an integer                                  *
+    ******************************************************************************/
 	 
 	 public static boolean isInteger(String str) {
 		    if (str == null) {
@@ -130,8 +107,8 @@ public class A3Driver
 		}
 	 
 	 /******************************************************************************
-		* Method Name: errorCheck                                                    *
-		* Purpose: checks a transaction to make sure it is valid
+		* Method Name: errorCheck                                                  *
+		* Purpose: checks a transaction to make sure it is valid                   *
 		******************************************************************************/
 	 
 	 public static boolean errorCheck(String[] tokens){
@@ -142,13 +119,13 @@ public class A3Driver
 				if((tokens[1].equals("clothing")) && (tokens.length == 6) && (tokens[3].matches("[-+]?\\d*\\.?\\d+"))){	
 				 check = true; 
 				}
-				else if((tokens[1].equals("groceries")) && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+"))){
+				else if((tokens[1].equals("groceries")) && (tokens.length == 7)&& (tokens[3].matches("[-+]?\\d*\\.?\\d+"))){//check if it is perishable
 					tokens[6] = tokens[6].toUpperCase();
 					if (tokens[6].equals("P") || tokens[6].equals("NP")){
 						check = true;
 					}
 				}
-				else if((tokens[1].equals("electronics")) && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+"))){
+				else if((tokens[1].equals("electronics")) && (tokens.length == 8) && (tokens[3].matches("[-+]?\\d*\\.?\\d+"))){// check if it is fragile and if it is a state
 					tokens[6] = tokens[6].toUpperCase();
 					if (tokens[6].equals("F") || tokens[6].equals("NF")){
 						tokens[7] = tokens[7].toUpperCase();
@@ -164,6 +141,7 @@ public class A3Driver
 						}
 					}
 				}
+				// the following block deals with the fact that "6.00" is valid integer but "6." is not
 				try{ 
 					if(Float.parseFloat(tokens[3])<0 || Integer.parseInt(tokens[4])<0 || Integer.parseInt(tokens[5])<0){
 						check = false;

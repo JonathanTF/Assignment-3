@@ -18,19 +18,18 @@ public class Item implements Comparable<Item>
 	float calculatePrice () 
 	{
 		float final_price = 0;
-		// Insert price calculation here
 		return final_price;
 	}
 	
 
-	float printItemAttributes () 
+	float printItemAttributes () //Print all applicable attributes of this sub-class
 	{
-		String item_type = this.getClass().getSimpleName();
-		float total_price = calculatePrice();
+		String item_type = this.getClass().getSimpleName();//Grocery, Electronics, Clothing
+		float total_price = calculatePrice();// each subclass has it's own unique calculatePrice();
 		System.out.println(item_type + " Item: "+ name + " Quantity: " + quantity + " ct." + 
 		" Final price (after tax and shipping): $" + total_price);
 		return total_price;
-		//Print all applicable attributes of this sub-class
+		
 	}
 	
 	@Override

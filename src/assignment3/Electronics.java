@@ -2,13 +2,11 @@ package assignment3;
 
 public class Electronics extends Item 
 {
-	
-	// Variables, constructors etc. here.
+
 	boolean fragile; 
 	String state;
 	double shipping = 0;
 	double tax = 0;
-	
 	public Electronics (String new_name, float new_price, int new_quantity, int new_weight, 
 			String op1, String new_state){
 		super(new_name, new_price, new_quantity, new_weight);
@@ -22,16 +20,16 @@ public class Electronics extends Item
 			fragile = false;
 		}
 	}
-	//Implement calculate price/print methods as necessary
+
 	
 	float calculatePrice () 
 	{	
 		float extra = 0;
-		if (checkTax(state)){
+		if (checkTax(state)){// must check to see if it is in a tax - free state
 			tax = 0.1*price;
 		}
 		if (fragile == true){
-			shipping = (1.2*(20*(weight)*quantity));
+			shipping = (1.2*(20*(weight)*quantity));// fragile electronics have premium shipping
 		}
 		else{
 			shipping = (20*(weight)*quantity);
@@ -43,7 +41,7 @@ public class Electronics extends Item
 		return final_price;
 	}
 	
-	// checks whether the state has sales tax
+	// the following method checks whether the state has sales tax
 	boolean checkTax (String state){
 		int count = 0;
 		String[] no_tax = {"AK", "AZ", "NM", "TX", "VA"};
@@ -59,22 +57,5 @@ public class Electronics extends Item
 		return true;
 	}
 	
-	// prints attributes of this class
-	/*float printItemAttributes () 
-	{
-		float total_price = calculatePrice();
-		if(fragile == true){
-			System.out.println("(Fragile) Electronics Item: "+ name + " Quantity: " + quantity + " ct." + 
-			" Final price (after tax and shipping): " + total_price);
-		}
-		else{
-			System.out.println("(Non-Fragile) Electronics Item: "+ name + " Quantity: " + quantity + " ct." + 
-					" Final price (after tax and shipping): " + total_price);		
-		}
-		return total_price;
-		//Print all applicable attributes of this class
-	}*/
 	
-	
-
 }
