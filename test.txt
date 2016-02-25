@@ -1,4 +1,0 @@
-insert clothing apples 100 2 50
-insert clothing apples 100 2 50
-insert groceries apples 100 2 50 P
-print

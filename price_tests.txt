@@ -1,6 +1,0 @@
-insert electronics a 2 2 1 F TX
-insert electronics b 2 2 1 NF TX
-insert electronics c 2 2 1 F NY
-insert electronics d 2 2 1 NF NY
-
-print
