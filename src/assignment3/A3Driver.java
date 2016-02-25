@@ -241,6 +241,8 @@ public class A3Driver
 			Item temp = list.next();
 			total_charge = (total_charge + temp.printItemAttributes());
 		}
+		float total_temp = Math.round((total_charge*100));
+		total_charge = total_temp /100;
 		System.out.println("Shopping Cart Total Charge: $" + total_charge);
 	}
 	

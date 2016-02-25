@@ -11,7 +11,7 @@ public class Clothing extends Item
 	float calculatePrice () 
 	{
 		float final_price = 0;
-		float extra = (float) ((0.1*price) + ((20*weight)*quantity));
+		float extra = (float) ((0.1*price*quantity) + ((20*weight)*quantity));
 		final_price = Math.round(((price*quantity) +  extra)*100);
 		final_price = final_price / 100;
 		return final_price;

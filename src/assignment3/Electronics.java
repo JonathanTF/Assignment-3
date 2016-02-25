@@ -26,7 +26,7 @@ public class Electronics extends Item
 	{	
 		float extra = 0;
 		if (checkTax(state)){// must check to see if it is in a tax - free state
-			tax = 0.1*price;
+			tax = 0.1*(price*quantity);
 		}
 		if (fragile == true){
 			shipping = (1.2*(20*(weight)*quantity));// fragile electronics have premium shipping
